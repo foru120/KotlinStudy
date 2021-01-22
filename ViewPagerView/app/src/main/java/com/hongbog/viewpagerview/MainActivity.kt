@@ -1,8 +1,8 @@
 package com.hongbog.viewpagerview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,9 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val views: List<View> = listOf<View>(CustomA(this), CustomB(this), CustomC(this), CustomD(this))
-        val adapter = CustomPagerAdapter()
-        adapter.views = views
+        val title = listOf<String>("A", "B", "C", "D")
+        val data: List<String> = listOf<String>("뷰A", "뷰B", "뷰C", "뷰D")
+        val adapter = CustomPagerAdapter(data)
         viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = title.get(position)
+        }.attach()
     }
 }

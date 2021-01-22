@@ -1,36 +1,27 @@
 package com.hongbog.viewpagerview
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.PagerAdapter
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
-class CustomPagerAdapter : PagerAdapter() {
-    var views = listOf<View>()
-
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object` as View
+class CustomPagerAdapter(val data: List<String>) : RecyclerView.Adapter<PagerViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
+        return PagerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_pager, parent, false))
     }
 
-    override fun getCount(): Int {
-        return views.size
+    override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
+        holder.bind(data[position])
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = views.get(position)
-        container.addView(view)
-        return view
-    }
+    override fun getItemCount(): Int = data.size
+}
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as View)
-    }
+class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val textView: TextView = itemView.findViewById(R.id.textView)
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when(position) {
-            0 -> "A"
-            1 -> "B"
-            2 -> "C"
-            else -> "D"
-        }
+    fun bind(data: String) {
+        textView.text = data
     }
 }
