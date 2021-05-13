@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kyh.musicplayer.music.MusicViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/playlist_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <View
+            android:id="@+id/screen_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:visibility="gone"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom">
+
+            <TextView
+                android:id="@+id/add_playlist_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_playlist_txt"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@+id/add_playlist_fab"
+                app:layout_constraintBottom_toBottomOf="@+id/add_playlist_fab"
+                app:layout_constraintEnd_toStartOf="@+id/add_playlist_fab" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_playlist_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/plus"
+                android:backgroundTint="@color/light_grey"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/main_fab"
+                app:layout_constraintEnd_toEndOf="@+id/main_fab"
+                app:layout_constraintBottom_toTopOf="@+id/main_fab">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/main_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/dark_grey"
+                android:src="@drawable/playlist"
+                app:fabSize="auto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</layout>

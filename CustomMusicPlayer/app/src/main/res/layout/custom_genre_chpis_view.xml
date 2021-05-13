@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/genre_chip_grp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                app:singleLine="true"
+                app:singleSelection="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/rocknroll_chips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/genre_rocknroll_chips"
+                    android:textSize="12dp"
+                    android:textColor="@color/medium_grey">
+                </com.google.android.material.chip.Chip>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/hiphop_chips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/genre_hiphop_chips"
+                    android:textSize="12dp"
+                    android:textColor="@color/medium_grey">
+                </com.google.android.material.chip.Chip>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/edm_chips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/genre_edm_chips"
+                    android:textSize="12dp"
+                    android:textColor="@color/medium_grey">
+                </com.google.android.material.chip.Chip>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ballade_chips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/genre_ballade_chips"
+                    android:textSize="12dp"
+                    android:textColor="@color/medium_grey">
+                </com.google.android.material.chip.Chip>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/classic_chips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/genre_classic_chips"
+                    android:textSize="12dp"
+                    android:textColor="@color/medium_grey">
+                </com.google.android.material.chip.Chip>
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

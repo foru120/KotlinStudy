@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CustomMusicPlayer</string>
+
+    <!-- Common -->
+    <string name="confirm_txt">확인</string>
+    <string name="cancel_txt">취소</string>
+    <string name="no_select_item_txt">아이템이 선택되지 않았습니다</string>
+    <string name="no_input_txt">값을 입력해주세요</string>
+
+    <!-- CaughtExceptionActivity/UnCaughtExceptionActivity -->
+    <string name="error_dialog_title">에러 발생!</string>
+
+    <!-- MusicListFragment -->
+    <string name="loading_dialog_init_data_txt" translatable="false">음악 데이터를 초기화하는 중입니다...</string>
+
+    <string name="menu_view_music_sync_btn">동기화</string>
+    <string name="menu_view_genre_edit_btn">장르 변경</string>
+    <string name="menu_view_complete_btn">완료</string>
+    <string name="menu_view_select_all_btn">전체 선택</string>
+    <string name="menu_view_clear_all_btn">전체 해제</string>
+
+    <string name="add_playlist_view_title_txt">나의 플레이리스트</string>
+    <string name="add_playlist_view_add_btn">추가</string>
+
+    <string name="genre_rocknroll_chips">ROCK_N_ROLL</string>
+    <string name="genre_hiphop_chips">HIPHOP</string>
+    <string name="genre_edm_chips">EDM</string>
+    <string name="genre_ballade_chips">BALLADE</string>
+    <string name="genre_classic_chips">CLASSIC</string>
+
+    <string name="bottom_nav_menu_music_list">전체 음악</string>
+    <string name="bottom_nav_menu_play_list">플레이리스트</string>
+    <string name="bottom_nav_menu_setting">설정</string>
+
+    <!-- PlayListFragment -->
+    <string name="add_playlist_txt">플레이리스트 추가</string>
+    <string name="del_playlist_txt">플레이리스트 삭제</string>
+
+
+</resources>

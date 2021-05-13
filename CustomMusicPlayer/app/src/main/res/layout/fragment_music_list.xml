@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.kyh.musicplayer.music.MusicViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/music_list_view">
+
+            <com.kyh.musicplayer.customView.AddPlayListView
+                android:id="@+id/add_playlist_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:visibility="@{safeUnbox(viewModel.isGenreEdit) ? View.INVISIBLE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/music_sync_btn"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </com.kyh.musicplayer.customView.AddPlayListView>
+
+            <com.kyh.musicplayer.customView.GenreChipsView
+                android:id="@+id/genre_chips_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="@{safeUnbox(viewModel.isGenreEdit) ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="@+id/add_playlist_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_playlist_view"
+                app:layout_constraintBottom_toBottomOf="@+id/add_playlist_view">
+
+            </com.kyh.musicplayer.customView.GenreChipsView>
+
+            <Button
+                android:id="@+id/music_sync_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/menu_view_music_sync_btn"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:onClick="@{() -> viewModel.insMusicData()}"
+                android:foreground="?attr/selectableItemBackground"
+                android:visibility="@{safeUnbox(viewModel.isGenreEdit) ? View.GONE : View.VISIBLE}"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintTop_toTopOf="@+id/add_playlist_view"
+                app:layout_constraintBottom_toBottomOf="@+id/add_playlist_view"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                android:id="@+id/tot_select_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{safeUnbox(viewModel.isSelect) ? @string/menu_view_clear_all_btn : @string/menu_view_select_all_btn}"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:onClick="@{() -> viewModel.setIsSelect()}"
+                android:foreground="?attr/selectableItemBackground"
+                android:enabled="@{viewModel.musicList.size() > 0 ? true : false}"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_playlist_view"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/genre_edit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@{safeUnbox(viewModel.isGenreEdit) ? @string/menu_view_complete_btn : @string/menu_view_genre_edit_btn}"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:enabled="@{viewModel.musicList.size() > 0 ? true : false}"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tot_select_btn"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/music_list_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/menu_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
